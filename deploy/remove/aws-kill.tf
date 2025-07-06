@@ -1,16 +1,16 @@
-# provider "aws" {
-#   region = "us-east-1"
-# }
+provider "aws" {
+  region = "us-east-1"
+}
 
-# resource "aws_vpc" "my-portfolio" {
-#   cidr_block           = "10.0.0.0/16"
-#   enable_dns_support   = true
-#   enable_dns_hostnames = true
+resource "aws_vpc" "my-portfolio" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
 
-#   tags = {
-#     Name = "my-portfolio"
-#   }
-# }
+  tags = {
+    Name = "my-portfolio"
+  }
+}
 
 # resource "aws_internet_gateway" "my-portfolio" {
 #   vpc_id = aws_vpc.my-portfolio.id
