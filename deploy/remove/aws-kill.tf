@@ -12,13 +12,13 @@ resource "aws_vpc" "my-portfolio" {
   }
 }
 
-# resource "aws_internet_gateway" "my-portfolio" {
-#   vpc_id = aws_vpc.my-portfolio.id
+resource "aws_internet_gateway" "my-portfolio" {
+  vpc_id = aws_vpc.my-portfolio.id
 
-#   tags = {
-#     Name = "my-portfolio"
-#   }
-# }
+  tags = {
+    Name = "my-portfolio"
+  }
+}
 
 # resource "aws_route_table" "my-portfolio" {
 #   vpc_id = aws_vpc.my-portfolio.id

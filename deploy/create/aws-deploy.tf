@@ -18,14 +18,14 @@ resource "aws_vpc" "my-portfolio" {
   }
 }
 
-# # Define an Internet Gateway
-# resource "aws_internet_gateway" "my-portfolio" {
-#   vpc_id = aws_vpc.my-portfolio.id  # Associate the Internet Gateway with the VPC
+# Define an Internet Gateway
+resource "aws_internet_gateway" "my-portfolio" {
+  vpc_id = aws_vpc.my-portfolio.id  # Associate the Internet Gateway with the VPC
 
-#   tags = {
-#     Name = "my-portfolio"  # Tag for the Internet Gateway
-#   }
-# }
+  tags = {
+    Name = "my-portfolio"  # Tag for the Internet Gateway
+  }
+}
 
 # # Define a Route Table
 # resource "aws_route_table" "my-portfolio" {

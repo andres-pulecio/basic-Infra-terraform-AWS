@@ -34,7 +34,7 @@ jobs:
         id: fetch-ids
         run: |
           VPC_ID=$(aws ec2 describe-vpcs --filters 'Name=tag:Name,Values=my-portfolio' --query 'Vpcs[*].VpcId' --output text)
-          # IGW_ID=$(aws ec2 describe-internet-gateways --filters 'Name=tag:Name,Values=my-portfolio' --query 'InternetGateways[*].InternetGatewayId' --output text)
+          IGW_ID=$(aws ec2 describe-internet-gateways --filters 'Name=tag:Name,Values=my-portfolio' --query 'InternetGateways[*].InternetGatewayId' --output text)
           # SUBNET_1_ID=$(aws ec2 describe-subnets --filters 'Name=tag:Name,Values=my-portfolio-1' --query 'Subnets[*].SubnetId' --output text)
           # SUBNET_2_ID=$(aws ec2 describe-subnets --filters 'Name=tag:Name,Values=my-portfolio-2' --query 'Subnets[*].SubnetId' --output text)
           # SG_ID=$(aws ec2 describe-security-groups --filters 'Name=tag:Name,Values=my-portfolio' --query 'SecurityGroups[*].GroupId' --output text)
@@ -50,7 +50,7 @@ jobs:
           # ECS_CLUSTER_ARN=$(aws ecs list-clusters --query "clusterArns[?contains(@, 'my-portfolio')]" --output text)
 
           echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
-          # echo "IGW_ID=$IGW_ID" >> $GITHUB_ENV
+          echo "IGW_ID=$IGW_ID" >> $GITHUB_ENV
           # echo "SUBNET_1_ID=$SUBNET_1_ID" >> $GITHUB_ENV
           # echo "SUBNET_2_ID=$SUBNET_2_ID" >> $GITHUB_ENV
           # echo "SG_ID=$SG_ID" >> $GITHUB_ENV
@@ -76,9 +76,9 @@ jobs:
         run: terraform import aws_vpc.my-portfolio ${{ env.VPC_ID }}
         working-directory: deploy/remove
 
-      # - name: Import Internet Gateway
-      #   run: terraform import aws_internet_gateway.my-portfolio ${{ env.IGW_ID }}
-      #   working-directory: deploy/remove
+      - name: Import Internet Gateway
+        run: terraform import aws_internet_gateway.my-portfolio ${{ env.IGW_ID }}
+        working-directory: deploy/remove
 
       # - name: Import Route Table
       #   run: terraform import aws_route_table.my-portfolio ${{ env.ROUTE_TABLE_ID }}
@@ -138,8 +138,8 @@ jobs:
         working-directory: deploy/remove
 
 
-      - name: Delete ECS Services  # Step to delete the ECS services
-        run: aws ecs delete-service --cluster my-portfolio --service my-portfolio --force
+      # - name: Delete ECS Services  # Step to delete the ECS services
+      #   run: aws ecs delete-service --cluster my-portfolio --service my-portfolio --force
 
-      - name: Delete ECS Cluster  # Step to delete the ECS cluster
-        run: aws ecs delete-cluster --cluster my-portfolio
+      # - name: Delete ECS Cluster  # Step to delete the ECS cluster
+      #   run: aws ecs delete-cluster --cluster my-portfolio
