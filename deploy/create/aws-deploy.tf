@@ -27,19 +27,19 @@ resource "aws_internet_gateway" "my-portfolio" {
   }
 }
 
-# # Define a Route Table
-# resource "aws_route_table" "my-portfolio" {
-#   vpc_id = aws_vpc.my-portfolio.id  # Associate the Route Table with the VPC
+# Define a Route Table
+resource "aws_route_table" "my-portfolio" {
+  vpc_id = aws_vpc.my-portfolio.id  # Associate the Route Table with the VPC
 
-#   route {
-#     cidr_block = "0.0.0.0/0"  # Route for all IPv4 traffic
-#     gateway_id = aws_internet_gateway.my-portfolio.id  # Use the Internet Gateway for the route
-#   }
+  route {
+    cidr_block = "0.0.0.0/0"  # Route for all IPv4 traffic
+    gateway_id = aws_internet_gateway.my-portfolio.id  # Use the Internet Gateway for the route
+  }
 
-#   tags = {
-#     Name = "my-portfolio"  # Tag for the Route Table
-#   }
-# }
+  tags = {
+    Name = "my-portfolio"  # Tag for the Route Table
+  }
+}
 
 # # Associate the Route Table with the Subnet
 # resource "aws_route_table_association" "my-portfolio" {
