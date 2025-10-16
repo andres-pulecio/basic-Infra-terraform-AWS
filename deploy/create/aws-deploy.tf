@@ -41,78 +41,78 @@ resource "aws_route_table" "my-portfolio" {
   }
 }
 
-# # Associate the Route Table with the Subnet
-# resource "aws_route_table_association" "my-portfolio" {
-#   subnet_id      = aws_subnet.my-portfolio-1.id  # Associate the Route Table with Subnet 1
-#   route_table_id = aws_route_table.my-portfolio.id  # Specify the Route Table ID
-# }
+# Associate the Route Table with the Subnet
+resource "aws_route_table_association" "my-portfolio" {
+  subnet_id      = aws_subnet.my-portfolio-1.id  # Associate the Route Table with Subnet 1
+  route_table_id = aws_route_table.my-portfolio.id  # Specify the Route Table ID
+}
 
-# # Define Subnet 1
-# resource "aws_subnet" "my-portfolio-1" {
-#   vpc_id                  = aws_vpc.my-portfolio.id  # Associate the Subnet with the VPC
-#   cidr_block              = "10.0.1.0/24"  # IP range for Subnet 1
-#   availability_zone       = "us-east-1a"  # Availability zone for Subnet 1
-#   map_public_ip_on_launch = true  # Assign a public IP to instances launched in the subnet
+# Define Subnet 1
+resource "aws_subnet" "my-portfolio-1" {
+  vpc_id                  = aws_vpc.my-portfolio.id  # Associate the Subnet with the VPC
+  cidr_block              = "10.0.1.0/24"  # IP range for Subnet 1
+  availability_zone       = "us-east-1a"  # Availability zone for Subnet 1
+  map_public_ip_on_launch = true  # Assign a public IP to instances launched in the subnet
 
-#   tags = {
-#     Name = "my-portfolio-1"  # Tag for Subnet 1
-#   }
-# }
+  tags = {
+    Name = "my-portfolio-1"  # Tag for Subnet 1
+  }
+}
 
-# # Define Subnet 2
-# resource "aws_subnet" "my-portfolio-2" {
-#   vpc_id                  = aws_vpc.my-portfolio.id  # Associate the Subnet with the VPC
-#   cidr_block              = "10.0.2.0/24"  # IP range for Subnet 2
-#   availability_zone       = "us-east-1b"  # Availability zone for Subnet 2
-#   map_public_ip_on_launch = true  # Assign a public IP to instances launched in the subnet
+# Define Subnet 2
+resource "aws_subnet" "my-portfolio-2" {
+  vpc_id                  = aws_vpc.my-portfolio.id  # Associate the Subnet with the VPC
+  cidr_block              = "10.0.2.0/24"  # IP range for Subnet 2
+  availability_zone       = "us-east-1b"  # Availability zone for Subnet 2
+  map_public_ip_on_launch = true  # Assign a public IP to instances launched in the subnet
 
-#   tags = {
-#     Name = "my-portfolio-2"  # Tag for Subnet 2
-#   }
-# }
+  tags = {
+    Name = "my-portfolio-2"  # Tag for Subnet 2
+  }
+}
 
-# # Define a Security Group
-# resource "aws_security_group" "my-portfolio" {
-#   name        = "my-portfolio"  # Name of the Security Group
-#   description = "Allow inbound traffic"  # Description of the Security Group
-#   vpc_id      = aws_vpc.my-portfolio.id  # Associate the Security Group with the VPC
+# Define a Security Group
+resource "aws_security_group" "my-portfolio" {
+  name        = "my-portfolio"  # Name of the Security Group
+  description = "Allow inbound traffic"  # Description of the Security Group
+  vpc_id      = aws_vpc.my-portfolio.id  # Associate the Security Group with the VPC
 
-#   # Allow inbound traffic on port 443 for HTTPS
-#   ingress {
-#     from_port   = 443  # Start of port range
-#     to_port     = 443  # End of port range
-#     protocol    = "tcp"  # Protocol to allow
-#     cidr_blocks = ["0.0.0.0/0"]  # Allow traffic from all IPs
-#   }
+  # Allow inbound traffic on port 443 for HTTPS
+  ingress {
+    from_port   = 443  # Start of port range
+    to_port     = 443  # End of port range
+    protocol    = "tcp"  # Protocol to allow
+    cidr_blocks = ["0.0.0.0/0"]  # Allow traffic from all IPs
+  }
 
-#   # Allow inbound traffic on port 80 for HTTP
-#   ingress {
-#     from_port   = 80  # Start of port range
-#     to_port     = 80  # End of port range
-#     protocol    = "tcp"  # Protocol to allow
-#     cidr_blocks = ["0.0.0.0/0"]  # Allow traffic from all IPs
-#   }
+  # Allow inbound traffic on port 80 for HTTP
+  ingress {
+    from_port   = 80  # Start of port range
+    to_port     = 80  # End of port range
+    protocol    = "tcp"  # Protocol to allow
+    cidr_blocks = ["0.0.0.0/0"]  # Allow traffic from all IPs
+  }
 
-#   # Allow inbound traffic on port 3000 for your application
-#   ingress {
-#     from_port   = 3000  # Start of port range
-#     to_port     = 3000  # End of port range
-#     protocol    = "tcp"  # Protocol to allow
-#     cidr_blocks = ["0.0.0.0/0"]  # Allow traffic from all IPs
-#   }
+  # Allow inbound traffic on port 3000 for your application
+  ingress {
+    from_port   = 3000  # Start of port range
+    to_port     = 3000  # End of port range
+    protocol    = "tcp"  # Protocol to allow
+    cidr_blocks = ["0.0.0.0/0"]  # Allow traffic from all IPs
+  }
 
-#   # Allow all outbound traffic
-#   egress {
-#     from_port   = 0  # Start of port range
-#     to_port     = 0  # End of port range
-#     protocol    = "-1"  # All protocols
-#     cidr_blocks = ["0.0.0.0/0"]  # Allow traffic to all IPs
-#   }
+  # Allow all outbound traffic
+  egress {
+    from_port   = 0  # Start of port range
+    to_port     = 0  # End of port range
+    protocol    = "-1"  # All protocols
+    cidr_blocks = ["0.0.0.0/0"]  # Allow traffic to all IPs
+  }
 
-#   tags = {
-#     Name = "my-portfolio"  # Tag for the Security Group
-#   }
-# }
+  tags = {
+    Name = "my-portfolio"  # Tag for the Security Group
+  }
+}
 
 # # Define an ECS cluster
 # resource "aws_ecs_cluster" "default" {
