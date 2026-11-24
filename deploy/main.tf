@@ -1,17 +1,17 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
+# terraform {
+#   required_providers {
+#     aws = {
+#       source  = "hashicorp/aws"
+#       version = "~> 5.0"
+#     }
+#   }
 
-  backend "s3" {
-    bucket = "basic-infra-terraform-state"
-    key    = "vpc/terraform.tfstate"
-    region = "us-east-1"
-  }
-}
+  # backend "s3" {
+  #   bucket = "basic-infra-terraform-state"
+  #   key    = "vpc/terraform.tfstate"
+  #   region = "us-east-1"
+  # }
+# }
 
 provider "aws" {
   region = var.region
