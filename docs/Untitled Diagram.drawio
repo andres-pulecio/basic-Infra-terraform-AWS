@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="WzCHb5bRW38Hb_Nr3k-j">
-    <mxGraphModel dx="1196" dy="1304" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="698" dy="761" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -11,10 +11,10 @@
           <mxGeometry height="640" width="440" x="80" y="40" as="geometry" />
         </mxCell>
         <mxCell id="7bF5EwbTuojN_WqVawp0-6" parent="7bF5EwbTuojN_WqVawp0-3" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.internet_gateway;labelPerimeter=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Internet Gateway&lt;/div&gt;" vertex="1">
-          <mxGeometry height="78" width="78" x="40" y="310" as="geometry" />
+          <mxGeometry height="78" width="78" x="40" y="280" as="geometry" />
         </mxCell>
         <mxCell id="7bF5EwbTuojN_WqVawp0-5" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;labelPerimeter=1;" value="" vertex="1">
-          <mxGeometry height="78" width="78" x="140" y="350" as="geometry" />
+          <mxGeometry height="78" width="78" x="140" y="322" as="geometry" />
         </mxCell>
         <mxCell id="7bF5EwbTuojN_WqVawp0-21" edge="1" parent="1" source="7bF5EwbTuojN_WqVawp0-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;labelPadding=0 4;dashed=1;strokeWidth=1;" target="7bF5EwbTuojN_WqVawp0-5">
           <mxGeometry relative="1" as="geometry" />
